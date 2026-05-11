@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 html,
@@ -11,10 +14,19 @@ body,
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
-  background-image:
-    radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 24%);
+  @apply bg-[#F9F7F3] text-[#323232] antialiased;
+  font-family: "Roboto", sans-serif;
+}
+
+.dark body {
+  @apply bg-[#323232] text-[#F9F7F3];
+}
+
+button,
+a,
+[role="button"],
+summary {
+  @apply cursor-pointer;
 }
 
 button,
@@ -22,4 +34,16 @@ input,
 select,
 textarea {
   @apply outline-none;
+}
+
+button {
+  @apply transition duration-200;
+}
+
+button:not(:disabled):hover {
+  @apply scale-[1.02];
+}
+
+button:disabled {
+  @apply cursor-not-allowed opacity-60;
 }

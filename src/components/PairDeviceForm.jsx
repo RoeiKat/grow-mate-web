@@ -15,42 +15,37 @@ export default function PairDeviceForm({ loading, onSubmit }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-white/10 bg-white/5 p-6"
+      className="rounded-[32px] bg-white p-6 shadow-2xl dark:bg-[#3b3b3b]"
     >
       <div className="flex items-center gap-3">
-        <div className="rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
+        <div className="rounded-2xl bg-[#3F826D]/10 p-3 text-[#3F826D]">
           <Link2 size={18} />
         </div>
+
         <div>
-          <h2 className="text-lg font-semibold">Pair a device</h2>
-          <p className="text-sm text-slate-400">Enter the pairing code shown by the device.</p>
+          <h2 className="text-lg font-bold">Pair a device</h2>
+          <p className="text-sm opacity-60">Enter the pairing code shown by the device.</p>
         </div>
       </div>
 
       <div className="mt-5 grid gap-4">
-        <div>
-          <label className="mb-2 block text-sm text-slate-300">Pairing code</label>
-          <input
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            placeholder="123456"
-            className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3"
-          />
-        </div>
+        <input
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          placeholder="Pairing code"
+          className="rounded-[10mm] border border-black/10 bg-[#F9F7F3] px-4 py-3 outline-none focus:border-[#3F826D] dark:border-white/10 dark:bg-[#323232]"
+        />
 
-        <div>
-          <label className="mb-2 block text-sm text-slate-300">Device name</label>
-          <input
-            value={deviceName}
-            onChange={(e) => setDeviceName(e.target.value)}
-            placeholder="Living room basil"
-            className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3"
-          />
-        </div>
+        <input
+          value={deviceName}
+          onChange={(e) => setDeviceName(e.target.value)}
+          placeholder="Device name"
+          className="rounded-[10mm] border border-black/10 bg-[#F9F7F3] px-4 py-3 outline-none focus:border-[#3F826D] dark:border-white/10 dark:bg-[#323232]"
+        />
 
         <button
           disabled={loading}
-          className="rounded-2xl bg-emerald-500 px-4 py-3 font-medium text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+          className="rounded-[10mm] bg-[#3F826D] px-4 py-3 font-bold text-[#F9F7F3] hover:bg-[#356f5d]"
         >
           {loading ? "Pairing..." : "Pair device"}
         </button>
