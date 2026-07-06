@@ -26,8 +26,7 @@ import {
 import { formatDate, isOnline } from "../utils/format";
 
 const DEVICE_IMG =
-  "https://res.cloudinary.com/dm20uwmki/image/upload/v1778489591/sprout-tree-svgrepo-com_pfwl8p.svg";
-
+  "https://res.cloudinary.com/dm20uwmki/image/upload/v1783240179/Gemini_Generated_Image_1_tmoq5i.png"
 const COMMANDS_PER_PAGE = 5;
 
 export default function DeviceDetailsPage() {

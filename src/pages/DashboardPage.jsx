@@ -11,8 +11,7 @@ import { fetchCommandsThunk } from "../features/commands/commandThunks";
 import { getWeatherForecast } from "../utils/weather";
 
 const DEVICE_IMG =
-  "https://res.cloudinary.com/dm20uwmki/image/upload/v1778489591/sprout-tree-svgrepo-com_pfwl8p.svg";
-
+  "https://res.cloudinary.com/dm20uwmki/image/upload/v1783240179/Gemini_Generated_Image_1_tmoq5i.png"
 export default function DashboardPage() {
   const dispatch = useDispatch();
   const { list, pairing, loadingList, error } = useSelector((state) => state.devices);

@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { ArrowRight, Leaf } from "lucide-react";
 import { loginThunk, registerThunk } from "../features/auth/authThunks";
+import g1LoginImage from "../assets/g1-login.jpg";
 
 const LOGO_URL =
   "https://res.cloudinary.com/dm20uwmki/image/upload/v1778477218/r2BGYaR01_3_lxjzyg.svg";
+
+const IMAGE_WIDTH = "48%"; // bigger = cut/image goes further right
+const CUT = 60; // bigger = cut starts further right on top
+const FORM_OFFSET = "8%"; // smaller = form more left, bigger = more right
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -39,45 +43,40 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F9F7F3] font-['Roboto',sans-serif] text-[#323232]">
-      <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-10 lg:grid-cols-[1fr_0.9fr]">
-        <section className="rounded-[42px] bg-white p-8 shadow-xl">
-          <img src={LOGO_URL} alt="ARO" className="-ml-5 h-20 w-56 object-contain" />
+    <div className="relative min-h-screen overflow-hidden bg-white font-['Roboto',sans-serif] text-[#323232]">
+      <div
+        className="absolute inset-0"
+      />
 
-          <div className="mt-10 overflow-hidden rounded-[36px] bg-[#F9F7F3] p-8">
-            <div className="flex items-center gap-3">
-              <div className="rounded-3xl bg-[#3F826D]/10 p-4 text-[#3F826D]">
-                <Leaf size={28} />
-              </div>
+      <section
+        className="absolute bottom-0 left-0 top-0 hidden overflow-hidden lg:block"
+        style={{
+          width: IMAGE_WIDTH,
+          clipPath: `polygon(0 0, ${CUT}% 0, 100% 100%, 0 100%)`
+        }}
+      >
+        <img
+          src={g1LoginImage}
+          alt="ARO G1"
+          className="h-full w-full object-cover"
+        />
 
-              <div>
-                <h1 className="text-4xl font-extrabold">Grow smarter.</h1>
-                <p className="mt-1 opacity-60">Control and monitor your ARO G1 devices.</p>
-              </div>
-            </div>
+        <img
+          src={LOGO_URL}
+          alt="ARO"
+          className="absolute left-8 top-8 h-16 w-44 object-contain brightness-0 invert"
+        />
+      </section>
 
-            <div className="mt-10 grid gap-4">
-              {[
-                "Pair devices with a live pairing code",
-                "Track room temperature, soil temperature, light and moisture",
-                "Queue watering and telemetry commands"
-              ].map((text) => (
-                <div
-                  key={text}
-                  className="flex items-center justify-between rounded-[28px] bg-white px-5 py-4 shadow-sm"
-                >
-                  <span className="font-semibold">{text}</span>
-                  <ArrowRight size={17} className="text-[#3F826D]" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      <div
+        className="relative z-10 flex min-h-screen items-center px-6 py-10"
+        style={{
+          paddingLeft: `calc(${IMAGE_WIDTH} + ${FORM_OFFSET})`
+        }}
+      >
+        <section className="w-full max-w-xl rounded-[42px] bg-white/90 p-8 shadow-xl backdrop-blur-xl">
+          <img src={LOGO_URL} alt="ARO" className="-ml-15 h-20 w-56 object-contain" />
 
-        <section className="rounded-[42px] bg-white p-8 shadow-xl">
-          <p className="text-sm font-extrabold uppercase tracking-[0.25em] text-[#3F826D]">
-            User App
-          </p>
 
           <h2 className="mt-4 text-4xl font-extrabold">
             {mode === "login" ? "Welcome back" : "Create account"}

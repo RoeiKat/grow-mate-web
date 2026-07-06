@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { formatRelativeTime, isOnline } from "../utils/format";
 
 const DEVICE_IMG =
-  "https://res.cloudinary.com/dm20uwmki/image/upload/v1778489591/sprout-tree-svgrepo-com_pfwl8p.svg";
+  "https://res.cloudinary.com/dm20uwmki/image/upload/v1783240179/Gemini_Generated_Image_1_tmoq5i.png"
 
 export default function DeviceCard({ device }) {
   const online = isOnline(device.lastSeenAt);
@@ -30,7 +30,7 @@ export default function DeviceCard({ device }) {
       </div>
 
       <div className="my-6 flex justify-center">
-        <div className="h-36 w-44 rounded-[28px] bg-[#F9F7F3] p-5 dark:bg-black/20">
+        <div className="h-48 w-56 rounded-[28px] bg-[#F9F7F3] p-5 dark:bg-black/20">
           <img src={DEVICE_IMG} alt="Device" className="h-full w-full object-contain" />
         </div>
       </div>
